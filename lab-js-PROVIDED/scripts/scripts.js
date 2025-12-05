@@ -61,11 +61,20 @@ function recalculate() {
 
 function changeModel() {
     let modelLabel = document.getElementById("model-text");
+    
+    if (modelName == "XYZ") {
+        modelName = "CPRG";
+        modelLabel.innerHTML = "Model CPRG";
+    } else if (modelName == "CPRG") {
+        modelName = "XYZ";
+        modelLabel.innerHTML = "Model XYZ";
+    }
 
+    recalculate()
 }
 
-
-
+let modelButton = document.getElementById("model-button");
+modelButton.addEventListener("click", changeModel);
 
 
 /****************** duration button logic ******************/
@@ -80,6 +89,20 @@ function changeModel() {
 */
 
 // INSERT YOUR CODE HERE
+
+function changeDuration() {
+    let durationLabel = document.getElementById("duration-text");
+
+    let newDuration = prompt("Enter a new duration:")
+
+    duration = newDuration
+    durationLabel.innerHTML = newDuration
+
+    recalculate()
+}
+
+let durationButton = document.getElementById("duration-button");
+durationButton.addEventListener("click", changeDuration);
 
 
 
